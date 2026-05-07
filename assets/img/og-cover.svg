@@ -1,0 +1,55 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Top 5 call tracking tools 2026, tested across 50+ lead-gen and rank-and-rent setups by Lisa Thompson">
+  <rect width="1200" height="630" fill="#FFFCF5"/>
+
+  <!-- Forest accent strip down left edge — keeps the editorial blog feel -->
+  <rect x="0" y="0" width="6" height="630" fill="#1F4D2F"/>
+
+  <!-- Dotted underline accent under the kicker -->
+  <text x="80" y="130" font-family="Manrope, sans-serif" font-weight="700" font-size="20" fill="#1F4D2F" letter-spacing="6">2026 EDITION · LISA THOMPSON</text>
+
+  <!-- Headline — large, conversational -->
+  <text x="80" y="240" font-family="Manrope, sans-serif" font-weight="800" font-size="86" fill="#0A0A0A" letter-spacing="-3">I tested 14 tools.</text>
+  <text x="80" y="330" font-family="Manrope, sans-serif" font-weight="800" font-size="86" fill="#0A0A0A" letter-spacing="-3">Here are my top 5.</text>
+
+  <!-- Forest accent line -->
+  <rect x="80" y="362" width="48" height="3" fill="#1F4D2F"/>
+
+  <!-- Sub headline -->
+  <text x="80" y="418" font-family="Source Sans 3, sans-serif" font-weight="400" font-size="24" fill="#2A2A2A">Call tracking software, ranked from a lead-gen agency owner</text>
+  <text x="80" y="450" font-family="Source Sans 3, sans-serif" font-weight="400" font-size="24" fill="#2A2A2A">who has deployed 50+ setups since 2019.</text>
+
+  <!-- Right side — numbered top 5 list, blog-style -->
+  <g transform="translate(820 130)" font-family="Manrope, sans-serif">
+    <text x="0" y="20" font-weight="700" font-size="13" fill="#6B6B6B" letter-spacing="2">MY 2026 TOP 5</text>
+
+    <line x1="0" y1="40" x2="320" y2="40" stroke="#E0DCD0"/>
+
+    <text x="0" y="86" font-weight="800" font-size="32" fill="#1F4D2F" letter-spacing="-1">1.</text>
+    <text x="48" y="86" font-weight="700" font-size="22" fill="#0A0A0A" letter-spacing="-0.5">CallScaler</text>
+    <text x="48" y="106" font-family="Source Sans 3, sans-serif" font-weight="400" font-size="14" fill="#6B6B6B">my top pick</text>
+
+    <line x1="0" y1="128" x2="320" y2="128" stroke="#E0DCD0"/>
+
+    <text x="0" y="170" font-weight="800" font-size="28" fill="#0A0A0A" letter-spacing="-1">2.</text>
+    <text x="48" y="170" font-weight="600" font-size="20" fill="#0A0A0A" letter-spacing="-0.5">WhatConverts</text>
+
+    <line x1="0" y1="195" x2="320" y2="195" stroke="#E0DCD0"/>
+
+    <text x="0" y="237" font-weight="800" font-size="28" fill="#0A0A0A" letter-spacing="-1">3.</text>
+    <text x="48" y="237" font-weight="600" font-size="20" fill="#0A0A0A" letter-spacing="-0.5">CallRail</text>
+
+    <line x1="0" y1="262" x2="320" y2="262" stroke="#E0DCD0"/>
+
+    <text x="0" y="304" font-weight="800" font-size="28" fill="#0A0A0A" letter-spacing="-1">4.</text>
+    <text x="48" y="304" font-weight="600" font-size="20" fill="#0A0A0A" letter-spacing="-0.5">Nimbata</text>
+
+    <line x1="0" y1="329" x2="320" y2="329" stroke="#E0DCD0"/>
+
+    <text x="0" y="371" font-weight="800" font-size="28" fill="#0A0A0A" letter-spacing="-1">5.</text>
+    <text x="48" y="371" font-weight="600" font-size="20" fill="#0A0A0A" letter-spacing="-0.5">CallTrackingMetrics</text>
+
+    <line x1="0" y1="396" x2="320" y2="396" stroke="#E0DCD0"/>
+
+    <text x="0" y="438" font-family="Source Sans 3, sans-serif" font-weight="600" font-size="14" fill="#1F4D2F" letter-spacing="2">TOP5CALLTRACKING.COM</text>
+  </g>
+</svg>

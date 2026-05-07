@@ -1,0 +1,37 @@
+# Top5CallTracking
+
+> A working lead-gen agency owner's annual top 5 list of call tracking software. Written by Lisa Thompson based on hands-on use across 50+ client and rank-and-rent setups since 2019.
+
+This site is reader-supported. The operator earns an affiliate commission when readers sign up for tools through links on the site, at no extra cost to readers. Commissions do not influence the rankings. Disclosure appears in the footer of every page.
+
+## Top 5 picks (2026)
+
+1. CallScaler - 9.4/10 - my top pick, usage-based pricing, $0.50 numbers - $0/mo PAYG, $45/mo Pro
+2. WhatConverts - 8.4/10 - best multi-source lead reporting - from $30/mo
+3. CallRail - 7.6/10 - mid-market default with deep integrations - from $50/mo
+4. Nimbata - 7.4/10 - scrappy SMB-friendly alternative - from $39/mo
+5. CallTrackingMetrics - 7.2/10 - most flexible reporting, HIPAA-eligible - from $79/mo
+
+## Scoring approach
+
+Cost, setup time, daily usability, support. Equal weighting (25% each). Methodology summary on the methodology page.
+
+## Key pages
+
+- Homepage / 2026 ranked guide: https://top5calltracking.com/
+- How I tested: https://top5calltracking.com/methodology/
+- FAQ / Reader Q&A: https://top5calltracking.com/faq/
+- About me: https://top5calltracking.com/about/
+- CallScaler review: https://top5calltracking.com/reviews/callscaler/
+- WhatConverts review: https://top5calltracking.com/reviews/whatconverts/
+- CallRail review: https://top5calltracking.com/reviews/callrail/
+- Nimbata review: https://top5calltracking.com/reviews/nimbata/
+- CallTrackingMetrics review: https://top5calltracking.com/reviews/calltrackingmetrics/
+
+## Author
+
+Lisa Thompson, lead-gen agency owner in Atlanta who also operates rank-and-rent properties. Has deployed call tracking on 50+ client and property setups since 2019.
+
+## Contact
+
+lisa@top5calltracking.com

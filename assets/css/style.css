@@ -1,0 +1,718 @@
+/* T4 Personal Blog Minimal — top5calltracking.com
+   Palette: cream #FFFCF5 / ink #0A0A0A / accent Forest #1F4D2F
+   Typography: Manrope (display) + Source Sans 3 (body)
+   Layout: single-column long-form reading. NO sticky header.
+   All layout-feedback rules from memory baked in. */
+
+:root {
+  --bg: #FFFCF5;
+  --bg-soft: #F5F0E5;
+  --bg-tint: #EAEDE8;
+  --ink: #0A0A0A;
+  --ink-soft: #2A2A2A;
+  --muted: #6B6B6B;
+  --rule: #E0DCD0;
+  --card: #FFFFFF;
+  --accent: #1F4D2F;
+  --accent-dark: #173B23;
+  --accent-soft: #EAEDE8;
+  --good: #1F4D2F;
+  --warn: #B45309;
+  --bad: #B91C1C;
+  --read-col: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent-dark); text-decoration-thickness: 2px; }
+
+h1, h2, h3, h4 {
+  font-family: 'Manrope', 'Source Sans 3', sans-serif;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 1.6em 0 .5em;
+  font-weight: 700;
+}
+
+h1 { font-size: 48px; line-height: 1.1; letter-spacing: -0.025em; font-weight: 800; margin-top: 0; }
+h2 { font-size: 30px; line-height: 1.2; margin-top: 2em; font-weight: 700; }
+h3 { font-size: 22px; line-height: 1.3; font-weight: 700; }
+h4 { font-size: 18px; line-height: 1.35; font-weight: 700; }
+
+p { margin: 0 0 1.2em; }
+
+@media (max-width: 760px) {
+  body { font-size: 17px; line-height: 1.7; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 24px; }
+}
+
+/* === Reading column ===
+   Almost everything on this site sits inside a narrow reading column. */
+.column {
+  max-width: var(--read-col);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.column-wide {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === Header (NOT sticky — blog style) === */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg);
+  padding: 22px 0;
+}
+.site-header .column-wide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.brand .accent { color: var(--accent); }
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--accent); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 6px 10px;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .nav-toggle { display: inline-block; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    flex-direction: column;
+    padding: 14px 18px;
+    gap: 14px;
+    z-index: 10;
+  }
+  .nav.open { display: flex; }
+}
+
+/* === Article header === */
+.article-header {
+  padding: 64px 0 28px;
+}
+.article-header .kicker {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+.article-header h1 { margin-top: 0; }
+.article-header .lede {
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 22px 0 0;
+  font-weight: 400;
+}
+
+@media (max-width: 760px) {
+  .article-header { padding: 40px 0 20px; }
+  .article-header .lede { font-size: 19px; }
+}
+
+/* === Byline (top of article, blog-style) === */
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 0;
+  margin: 26px 0 32px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
+}
+.byline > img.byline-avatar { display: block; }
+.byline-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.byline strong { color: var(--ink); font-weight: 700; }
+.byline .meta-line { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+.byline .sep { color: var(--rule); }
+
+/* === Article body === */
+.article-body { padding: 0 0 56px; }
+.article-body p { font-size: 18px; }
+.article-body ul, .article-body ol { margin: 0 0 1.4em; padding-left: 24px; }
+.article-body li { margin-bottom: 8px; }
+
+/* === Pull quote === */
+.pull-quote {
+  margin: 36px 0;
+  padding: 0 0 0 24px;
+  border-left: 3px solid var(--accent);
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  line-height: 1.45;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.pull-quote cite {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+/* === At-a-glance callout (sidebar-style box but inline) === */
+.at-glance {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  padding: 22px 26px;
+  margin: 32px 0;
+}
+.at-glance h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+.at-glance ol {
+  margin: 0;
+  padding-left: 22px;
+}
+.at-glance li {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+.at-glance li small {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+/* === Buttons === */
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+  font-family: 'Manrope', sans-serif;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-ghost:hover { background: var(--ink); color: var(--bg); text-decoration: none; }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+/* === Numbered review chapter (the main pattern for reviews) === */
+.review-chapter {
+  margin: 56px 0;
+}
+.review-chapter h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.review-chapter .num {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  line-height: 1;
+}
+.review-chapter .verdict {
+  font-size: 18px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.review-chapter .stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 18px 0 24px;
+}
+.review-chapter .stat-row strong { color: var(--ink); font-weight: 700; }
+
+/* === Quick picks decision tree === */
+.quick-picks {
+  background: var(--bg-soft);
+  padding: 32px;
+  margin: 40px 0;
+}
+.quick-picks h2 { margin-top: 0; }
+.quick-picks dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 14px 22px;
+  align-items: baseline;
+}
+.quick-picks dt {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 15px;
+  white-space: nowrap;
+}
+.quick-picks dt::after { content: " →"; color: var(--accent); }
+.quick-picks dd {
+  margin: 0;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.quick-picks dd strong { color: var(--accent); font-weight: 700; }
+@media (max-width: 600px) {
+  .quick-picks dl { grid-template-columns: 1fr; gap: 4px 0; }
+  .quick-picks dt { padding-top: 10px; border-top: 1px solid var(--rule); }
+  .quick-picks dt:first-child { border-top: none; padding-top: 0; }
+  .quick-picks dd { padding-bottom: 4px; }
+}
+
+/* === Reader Q&A (FAQ in casual blog form) === */
+.reader-qa { margin: 48px 0; }
+.reader-qa h2 { margin-bottom: 16px; }
+.reader-qa .q {
+  margin: 28px 0 8px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--ink);
+}
+.reader-qa .q::before {
+  content: "Q. ";
+  color: var(--accent);
+  font-weight: 800;
+}
+.reader-qa .a { margin-bottom: 18px; }
+
+/* === Author tooltip (layout memory rule #5) === */
+.author-mention {
+  position: relative;
+  display: inline-block;
+}
+.author-name {
+  cursor: help;
+  border-bottom: 1px dotted var(--accent);
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  outline: none;
+}
+.author-name:hover, .author-name:focus { color: var(--accent-dark); }
+.author-card {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  padding: 12px 14px;
+  box-shadow: 0 6px 20px rgba(10,10,10,.06);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+  pointer-events: none;
+  white-space: normal;
+}
+.author-card strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 4px; }
+.author-mention:hover .author-card,
+.author-name:focus ~ .author-card,
+.author-card:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+@media (max-width: 600px) {
+  .author-card { width: 260px; left: -20px; }
+}
+
+/* === Author block (about-the-writer at bottom of article) === */
+.author-block {
+  background: var(--bg-soft);
+  padding: 28px;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  margin: 48px 0;
+  border-left: 3px solid var(--accent);
+}
+.author-block img { width: 64px; height: 64px; border-radius: 50%; display: block; flex-shrink: 0; }
+.author-block h3 { margin: 0 0 6px; font-size: 20px; }
+.author-block p { margin: 0 0 8px; font-size: 16px; }
+.author-block .role {
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+@media (max-width: 600px) { .author-block { flex-direction: column; } }
+
+/* === Breadcrumb === */
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+@media (max-width: 760px) {
+  .breadcrumb { font-size: 12px; padding-top: 12px; padding-bottom: 12px; }
+}
+
+/* === TLDR (review pages) — simplified for blog feel === */
+.tldr {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  padding: 22px 26px;
+  margin: 28px 0;
+}
+.tldr h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+.tldr ul { margin: 0; padding-left: 22px; }
+.tldr li { margin-bottom: 6px; font-size: 16px; }
+.tldr .overall {
+  margin-top: 14px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+/* === Inline TL;DR CTA (memory pattern) === */
+.tldr-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: -8px 0 32px;
+}
+.tldr-cta .subtext {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* === Inline CTA card (simpler 3-line pattern from memory) === */
+.cta-card {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  padding: 26px 28px;
+  text-align: left;
+  margin: 36px 0;
+}
+.cta-card h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cta-card .btn { margin: 0; }
+.cta-card .subtext {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* === Pricing list (compact for blog) === */
+.pricing-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+  border-top: 1px solid var(--rule);
+}
+.pricing-list li {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+}
+.pricing-list .plan { font-weight: 700; }
+.pricing-list .price { color: var(--accent); font-weight: 700; }
+
+/* === Pros and cons === */
+.proscons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin: 22px 0;
+}
+.proscons ul { padding-left: 20px; margin: 8px 0 0; }
+.proscons li { margin-bottom: 6px; font-size: 16px; }
+.proscons .pros h4 { color: var(--good); margin-top: 0; }
+.proscons .cons h4 { color: var(--warn); margin-top: 0; }
+@media (max-width: 600px) { .proscons { grid-template-columns: 1fr; } }
+
+/* === Footer === */
+.site-footer {
+  background: #0F1A14;
+  color: #B5BCB7;
+  padding: 48px 0 24px;
+  margin-top: 64px;
+}
+.site-footer h4 {
+  color: #fff;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.site-footer a { color: #B5BCB7; text-decoration: none; }
+.site-footer a:hover { color: #fff; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+.footer-grid ul { list-style: none; padding: 0; margin: 0; }
+.footer-grid li { margin-bottom: 8px; font-size: 14px; }
+@media (max-width: 760px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* === Disclosure (layout memory rule #6) === */
+.disclosure {
+  border-top: 1px solid #1F2A22;
+  padding-top: 18px;
+  font-size: 12px;
+  color: #6B7268;
+  line-height: 1.6;
+}
+.disclosure a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.disclosure a:hover { color: #fff; }
+
+/* === Utility === */
+.muted { color: var(--muted); font-size: 14px; }
+.divider { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+.center { text-align: center; }
+
+
+/* === Editor-note cross-link (replaces affiliate CTA on competitor reviews) === */
+.tldr-crosslink {
+  margin: 18px 0 28px;
+  padding: 14px 18px;
+  background: var(--bg-soft, #f5f5f3);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.tldr-crosslink p { margin: 0; }
+.tldr-crosslink strong { color: var(--ink); font-weight: 600; }
+.tldr-crosslink a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+.tldr-crosslink a:hover { text-decoration: none; }
+
+/* === Reviews dropdown === */
+.nav-dropdown { position: relative; }
+.nav-dropdown > .dropdown-trigger {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  /* font-family, font-size, font-weight, text-transform, letter-spacing,
+     color all inherit from the sibling nav <a> rule so the trigger matches
+     the rest of the nav. */
+}
+.nav-dropdown > .dropdown-trigger::after {
+  content: "\25BE";
+  font-size: 0.72em;
+  margin-left: 3px;
+  opacity: 0.6;
+  color: currentColor;
+  transition: opacity .15s ease, color .15s ease;
+}
+.nav-dropdown:hover > .dropdown-trigger,
+.nav-dropdown:focus-within > .dropdown-trigger,
+.nav-dropdown > .dropdown-trigger:hover { color: var(--accent); }
+.nav-dropdown:hover > .dropdown-trigger::after,
+.nav-dropdown:focus-within > .dropdown-trigger::after { color: var(--accent); }
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 10px 24px rgba(31, 77, 47, .08);
+  min-width: 280px;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+  z-index: 60;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+}
+.nav-dropdown-menu a:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.nav-dropdown-menu .pick-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-left: 12px;
+}
+@media (max-width: 760px) {
+  .nav-dropdown { width: 100%; }
+.nav-dropdown > .dropdown-trigger {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  /* font-family, font-size, font-weight, text-transform, letter-spacing,
+     color all inherit from the sibling nav <a> rule so the trigger matches
+     the rest of the nav. */
+}
+.nav-dropdown > .dropdown-trigger::after {
+  content: "\25BE";
+  font-size: 0.72em;
+  margin-left: 3px;
+  opacity: 0.6;
+  color: currentColor;
+  transition: opacity .15s ease, color .15s ease;
+}
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 4px 0 0 14px;
+    min-width: 0;
+    margin-top: 4px;
+    border-left: 2px solid var(--rule);
+  }
+  .nav-dropdown-menu a { padding: 6px 0; font-size: 13px; color: var(--muted); }
+  .nav-dropdown-menu a:hover { background: transparent; color: var(--accent); }
+  .nav-dropdown-menu .pick-tag { font-size: 9px; padding: 1px 6px; }
+}
